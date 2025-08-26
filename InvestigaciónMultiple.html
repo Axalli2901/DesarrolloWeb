@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title> Investigación Múltiple </title>
+</head>
+
+<body>
+  <header>
+    <h1> Formulario de HTML </h1>
+  </header>
+
+  <main> 
+    <p>Esta actividad consolida los fundamentos de HTML desde tres frentes:</p>
+    <!-- para dar formato a nuestro texto podemos poner la etiqueta <code> 
+        para identificar y mostrar fragmentos de código informático
+    -->
+    <!-- Para mostrar los caracteres < y > como texto en HTML, 
+         debes usar sus respectivos códigos de entidad HTML: 
+         &lt; para el signo menor que y &gt; para el signo mayor que.
+         Se ocuparon por eso estos comandos para que se entienda mejor 
+         que se esta hablando de etiquetas en la investigación
+    -->
+    <p>
+        Entender la diferencia entre apariencia y semántica en pares de etiquetas que se ven igual pero significan cosas distintas
+         — <code>&lt;b&gt;</code> vs <code>&lt;strong&gt;</code>, 
+         <code>&lt;i&gt;</code> vs <code>&lt;em&gt;</code>, 
+         <code>&lt;s&gt;</code> vs <code>&lt;del&gt;</code> —     
+         y su impacto y usabilidad </p>
+    <p>
+        Distinguir elementos en línea e elementos de bloque para controlar el flujo y la estructura del documento
+    </p>
+    <p>
+        Construir un formulario completo con <code>&lt;form&gt;</code>, 
+        <code>&lt;label&gt;</code>, 
+        <code>&lt;input&gt;</code> (con 7 tipos), 
+        <code>&lt;select&gt;</code>/<code>&lt;option&gt;</code>, 
+        <code>&lt;textarea&gt;</code>, <code>&lt;progress&gt;</code> y 
+        <code>&lt;output&gt;</code>, aplicando sus atributos nativos.
+    </p>
+    <p>
+            El objetivo es entregar una página clara, bien estructurada y semántica, sin depender de estilos o scripts avanzados.
+    </p>
+    <br>
+    <p>Guía HTML: Semántica, Visual y Formularios</p>
+    
+  </main>
+  <p> 
+    <img src=ImInicio.png alt=“Imagen1” />
+  </p>
+    <!-- etiquetas que de forma visual tienen los mismos resultados pero que semánticamente son diferentes. -->
+    <div>
+      <h2>1. Diferencias semánticas </h2>
+
+      <article>
+        
+        <h3> &lt;b&gt; &lt;/b&gt; vs &lt;strong&gt; &lt;/strong&gt; </h3>
+
+        <p> Visualmente ambos se ven en negritas por defecto, pero tienen diferentes momentos y situaciones específicos en los que deben de ser usados </p>
+        <h4>&lt;strong&gt;</h4>
+        <p>
+           Strong de Marca contenido importante (énfasis fuerte). EN la pantalla y los lectores de pantalla se resalta al igual que con &lt;b&gt;, pero en los los buscadores se entiende ya como contenido relevate<code>&lt;b&gt;</code> solo pone el texto en negritas sin significado extra.
+        </p>
+        <h4>&lt;b&gt;</h4>
+        <p>
+            Proveniente del inglés "bold" (negrita) se utiliza para poner el texto en negrita: el contendio solo cambia de apariencia, pero no añade ningun significado al contenido que tiene esta etiqueta. Se usa unicamente con un propósito visual.
+        </p>
+        <h4>EJEMPLOS</h4>
+        <p>Ejemplo visual para b y ejemplo fuerte para strong:</p>
+        <p><b>Visual &lt;b&gt; </b> y <strong>Importante &lt;strong&gt; </strong>.</p>
+
+        <p> 
+            <img src= https://i.pinimg.com/736x/83/a3/76/83a376cb3b02535b4d316cdf2b38f156.jpg 
+                 alt=“Strong” />  
+        </p>
+      </article>
+
+
+      <article>
+        <h3>&lt;i&gt; &lt;/i&gt; vs. &lt;em&gt; &lt;/em&gt;</h3>
+        <p>Ambos aparecen en cursivas de manera visual, pero aquí como en el ejemplo anterior, una solo es con fines visuales, mientras que la otra tiene significado semántico </p>
+        <h4> &lt;i&gt;</h4>
+        <p> 
+            Viene de la palabra inglesa "italic". Se usa para texto en cursiva sin énfasis (términos técnicos, palabras en otro idioma, pensamientos).
+        </p>
+        <h4> &lt;em&gt; </h4>
+        <p>
+            De emphasis, indica el énfasis o la importancia sempantica de un texto (por ejemplo: puede cambiar la entonación en lectores de pantalla).
+        </p>
+        <h4>EJEMPLOS</h4>
+        <p>Veremos el texto en latín (italica) para &lt;i&gt; y el texto con énfasis real para em:</p>
+
+        <p> <i>latín (itálica)</i> y <em>énfasis real</em>.</p>
+        <p>     
+            <img src=https://i.pinimg.com/1200x/da/bb/3f/dabb3fc2cfbb88bd8319a154119bcff1.jpg alt=“Enfasis” />
+        </p>
+
+      </article>
+
+      <article>
+        <h3>&lt;s&gt; &lt;/s&gt; vs. &lt;del&gt; &lt;/del&gt;</h3>
+        <p>
+            Ambas etiquetas se utilizan para dar significado semántico al contenido web, aunque &lt;del&gt; se centra en la supresión y &lt;s&gt; en la irrelevancia general. 
+        </p>
+        <h4>&lt;s&gt; </h4>
+        <p>
+          Significa strikethrough (tachado).Muestra contenido ya no vigente o incorrecto, pero no necesariamente eliminado. Se muestra con una línea que lo tacha visualmente. Esta etiqueta se utiliza para indicar que la información está desactualizada o ya no es válida
+        </p>
+        <h4> &lt;del&gt; ;</h4>
+        <p>
+          Que viene de 'delete', representa contenido eliminado del documento (puede incluir <code>datetime</code> para registrar cambios). 
+        </p>
+        <p>EJEMPLO</p>
+
+        <p>TACHADO  &lt;s&gt; <br>
+            Antes: <s>$999</s>. <br>
+            Ahora: $799. 
+        </p>
+        <p> DELETE &lt;s&gt; <br>
+            Estado: <br>
+            <del datetime="2025-08-01">Cerrado</del> Abierto.
+        </p>
+        <p>     
+            <img src= https://i.pinimg.com/736x/d1/6f/5c/d16f5c6272aea6e75be4cc965309b4ff.jpg alt="Delete" />         
+        </p>
+      </article>
+
+      <p>
+        <strong>Implicaciones visuales:</strong> los pares suelen verse iguales por defecto (negritas, cursivas, tachado).<br>
+        <strong>Implicaciones para buscadores y accesibilidad:</strong> usar <code>&lt;strong&gt;</code> y <code>&lt;em&gt;</code> comunica importancia/énfasis; <code>&lt;del&gt;</code> comunica edición/eliminación. <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code> y <code>&lt;s&gt;</code> son principalmente presentacionales.
+      </p>
+    </div>
+
+    <!-- 2) Inline vs Block -->
+    <div>
+      <h2>2. Elementos de línea vs. elementos de bloque </h2>
+
+      <article>
+        <h3>Elementos de línea</h3>
+        <p>Se colocan en la misma línea y solo ocupan el ancho necesario. No comienzan en una línea nueva por defecto.</p>
+        <ul>
+          <li>&lt;a&gt; (enlace)</li>
+          <li>&lt;span&gt; (contenedor en línea)</li>
+          <li>&lt;img&gt; (imagen)</li>
+          <li>&lt;strong&gt; (importancia, texto fuerte)</li>
+          <li> &lt;em&gt; (énfasis)</li>
+          <li>&lt;code&gt; (código)</li>
+          <li>&lt;label&gt; (etiqueta accesible)</li>
+        </ul>
+        <p>
+            <h4>Ejemplo en línea: </h4>
+            <ul>
+                <li>Este es Texto</li>
+                <li>Este es <a href="https://mx.pinterest.com/pin/901353312920370644/">enlace</a></li>
+                <li>Este es texto <strong>Fuerte</strong> (<strong>Strong</strong>)</li>
+                <li>Este texto tiene <em>énfasis</em> </li>
+                <li>Este es <code> código </code></li>
+                <li><label>Este es label: <input name="label" type="email"></label></li>
+            </ul>    
+        </p>
+      </article>
+
+      <article>
+        <h3>Elementos de bloque</h3>
+        <p>
+            <img src = https://www.espai.es/blog/wp-content/uploads/2017/12/block-size.jpg
+                alt="Bloques"/>
+        </p>
+        <p>Ocupan todo el ancho disponible y comienzan en una línea nueva. Pueden contener otros elementos.</p>
+        <ul>
+          <li>&lt;div&gt; (contenedor genérico)</li>
+          <li>&lt;p&gt; (párrafo)</li>
+          <li>&lt;h1&gt; … &lt;h6&gt; (encabezados)</li>
+          <li>&lt;ul&gt; / &lt;ol&gt; / &lt;li&gt; (listas)</li>
+          <li>&lt;section&gt; / &lt;article&gt; / &lt;nav&gt; / &lt;footer&gt;</li>
+        </ul>
+        <h4>Ejemplo de bloque:</h4>
+        <p>
+            Las listas son las etiquetas de bloque que mejor se pueden distinguir, pues se nota en el formato la división de seccione en cada uno de los inciso y viñetas
+        </p>
+        <p>
+            Ejemplo 1 : lista no ordenada <br>
+            Las listas ordenadas se dividen en viñetas y hacen uso de las etiquetas &lt;ul&gt; y &lt;/ul&gt; de inicio y cierre, y para cada una de las viñetas uasn las etiquetas &lt;li&gt; de inicio y &lt;/lli&gt; de cierre. 
+        </p>
+        <p>
+            Ejemplo 2: lista ordenada <br>
+            Esta se va a explicar más adelante 
+        </p>
+        <p>
+            Del lado izquierdo veremos como es el código de cada lista y del derecho lo que se ve en la página web final
+            <img    src = https://edea.juntadeandalucia.es/bancorecursos/file/f2db6990-1dfd-4ef6-b5bf-87ad39a5b3eb/1/es-an_2018061812_9095923.zip/lista.1.JPG
+                    alt="Ejemplo1y2" />  
+        </p>
+
+        <ol> Ejemplo 2:  lista ordenada<br> <br>
+            <li>Explicaremos el ejemplo de la lista ordenada</li>
+            <li>Las listas ordenadas se ven con números en su parte izquiera</li>
+            <li>Hace uso de las etiquetas &lt;ol&gt; y &lt;/ol&gt; de inicio y cierre</li>
+            <li>Dentro de estas etiquetas vienen las que definen los números</li>
+            <li>Que son justamente &lt;li&gt; y &lt;/li&gt;</li>
+            <li>De modo en que el código para hacer esta lista se ve algo así:<br>
+                <br>
+                    &lt;ol&gt;<br>        
+                    &lt;li&gt; texto1 &lt;/li&gt;<br>        
+                    &lt;li&gt; texto2 &lt;/li&gt;<br>         
+                    &lt;/ol&gt;
+                
+
+            </li>
+        </ol>
+        <p>
+            Vemos que se encuentran diferentes tipos de encabezados para visualizar la etiquetas de bloque; y también observamos que estos encabezados se encuentran dentro de la etiqueta de bloque &lt;div&gt;, aquí igual podría venir etiquetas de párrafo, imágenes, artículos, los titulos como se muestras y otros.
+        </p>
+        <p>
+            <img    src = https://edea.juntadeandalucia.es/bancorecursos/file/f2db6990-1dfd-4ef6-b5bf-87ad39a5b3eb/1/es-an_2018061812_9095923.zip/encabezado.JPG 
+                    alt="Ejemplo3y4" />
+        </p>
+        <p>
+            Por último encontraremos un ejemplo de un párrafo como este, denotro de los párrafos se puede colocar cualquier clase de texto y se usa muy seguido para los textos que vemos en las páginas pues la mayoría son párrafos, esta etiqueta de bloque se ve en código de la siguiente maneraa: <br>
+            &lt;p&gt; Texto del párrafo &lt;/p&gt; 
+        </p>
+        <p>
+            A continuación encontramos un diagrama en donde vemos como quedarían algunas de nuestras secciones al hacer uso del código de bloque<br>
+            <img src=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkJh3Tg5c_op-yOo-VVEH2oz1CB0zv2-w04Zgj819PEk5lO18vM7H_8oF7SzM714sV3HZEKwQ0mEAlr4-bRI7KQxL7r3XwN249R-jjjAuncGOAG3LjwSPHfkbHso61mgKIODCxPgtSEWyk/s1600/HTML5-elements.jpg
+                    alt="graficamente"/>
+            
+        </p>
+      </article>
+    </div>
+
+    <!-- 3) Formularios: ejemplos mínimos -->
+    <div>
+      <h2>3. Formularios: etiquetas y atributos básicos</h2>
+      <!-- -->
+      <form>
+        <h3>&lt;label&gt;</h3>
+        <p><strong>Propósito:</strong> texto que nombra un control y lo hace clicable. <strong>Atributo clave:</strong> <code>for</code> (debe coincidir con el <code>id</code> del control).</p>
+        <p><label for="name">Nombre:</label> <input id="name" name="name" type="text" placeholder="Tu nombre" maxlength="50" required></p>
+        
+
+        <h3>&lt;input type="text"&gt;</h3>
+        <p><strong>Uso:</strong> texto corto. <strong>Atributos:</strong> <code>name</code>, <code>id</code>, <code>placeholder</code>, <code>maxlength</code>, <code>required</code>, <code>autocomplete</code>.</p>
+        <p><label for="user">Usuario:</label> <input id="user" name="user" type="text" placeholder="usuario123" required></p>
+        
+        
+        <h3>&lt;input type="email"&gt;</h3>
+        <p><strong>Uso:</strong> correos con validación nativa. <strong>Atributos:</strong> <code>autocomplete</code>.</p>
+        <p><label for="email">Correo:</label> <input id="email" name="email" type="email" placeholder="correo@ejemplo.com" autocomplete="email"></p>
+        
+        
+        <h3>&lt;input type="password"&gt;</h3>
+        <p><strong>Uso:</strong> contraseñas (oculta caracteres). <strong>Atributos:</strong> <code>minlength</code>, <code>required</code>.</p>
+        <p><label for="pass">Contraseña:</label> <input id="pass" name="pass" type="password" minlength="8" required></p>
+        
+        
+        <h3>&lt;input type="number"&gt;</h3>
+        <p><strong>Uso:</strong> números. <strong>Atributos:</strong> <code>min</code>, <code>max</code>, <code>step</code>.</p>
+        <p><label for="age">Edad:</label> <input id="age" name="age" type="number" min="1" max="120" step="1"></p>
+
+        
+        <h3>&lt;input type="date"&gt;</h3>
+        <p><strong>Uso:</strong> selector de fecha.</p>
+        <p><label for="date">Fecha:</label> <input id="date" name="date" type="date"></p>
+
+
+        <h3>&lt;input type="range"&gt;</h3>
+        <p><strong>Uso:</strong> deslizador. <strong>Atributos:</strong> <code>min</code>, <code>max</code>, <code>step</code>.</p>
+        <p><label for="range">Nivel de satisfacción:</label> <input id="range" name="range" type="range" min="0" max="10" step="1"></p>
+        
+        
+        <h3>&lt;input type="file"&gt;</h3>
+        <p><strong>Uso:</strong> carga de archivos. <strong>Atributos:</strong> <code>accept</code>, <code>multiple</code>.</p>
+        <p><label for="file">Subir archivo:</label> <input id="file" name="file" type="file" accept="image/*,.pdf" multiple></p>
+        
+
+        <h3>&lt;input type="radio"&gt;</h3>
+        <p><strong>Uso:</strong> seleccionar <em>una sola</em> opción por grupo. <strong>Regla:</strong> comparten el mismo <code>name</code>.</p>
+        <p>Plan:
+            <label><input type="radio" name="plan" value="basic" checked> Básico</label>
+            <label><input type="radio" name="plan" value="pro"> Pro</label>
+            <label><input type="radio" name="plan" value="enterprise"> Enterprise</label>
+        </p>
+        
+        <h3>&lt;input type="checkbox"&gt;</h3>
+        <p><strong>Uso:</strong> selección múltiple independiente.</p>
+        <p>Temas:
+            <label><input type="checkbox" name="topics" value="html" checked> HTML</label>
+            <label><input type="checkbox" name="topics" value="css"> CSS</label>
+            <label><input type="checkbox" name="topics" value="js"> JS</label>
+        </p>
+        
+        <h3>&lt;select&gt; + &lt;option&gt;</h3>
+        
+        <p><strong>Uso:</strong> lista desplegable. <strong>Atributos &lt;select&gt;:</strong> <code>multiple</code>, <code>size</code>, <code>disabled</code>. <strong>Atributos &lt;option&gt;:</strong> <code>value</code>, <code>selected</code>, <code>disabled</code>.</p>
+        <p><label for="country">País:</label>
+            <select id="country" name="country">
+                <option value="" selected disabled>Selecciona...</option>
+                <option value="mx">México</option>
+                <option value="es">España</option>
+                <option value="us">Estados Unidos</option>
+            </select>
+        </p>
+        
+        
+        <h3>&lt;textarea&gt;</h3>
+        <p><strong>Uso:</strong> texto de varias líneas. <strong>Atributos:</strong> <code>rows</code>, <code>cols</code>, <code>maxlength</code>, <code>placeholder</code>, <code>wrap</code>.</p>
+        <p><label for="bio">Biografía:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="40" maxlength="200" placeholder="Cuenta algo sobre ti…"></textarea>
+        </p>
+
+        <h3>&lt;progress&gt;</h3>
+        <p><strong>Uso:</strong> barra de progreso. <strong>Atributos:</strong> <code>value</code>, <code>max</code>. Si no hay <code>value</code>, es indeterminado.</p>
+        <p><label for="progress">Progreso:</label> <progress id="progress" value="40" max="100">40%</progress></p>
+        
+        
+        <h3>&lt;output&gt;</h3>
+        <p><strong>Uso:</strong> mostrar resultados calculados o generados por el usuario. <strong>Atributos:</strong> <code>name</code>, <code>for</code> (opcional).</p>
+        <p>Resultado: <output id="res" name="res">0</output></p>
+        
+        
+        <p><button type="submit">Enviar</button> <button type="reset">Limpiar</button></p>
+    </form>
+<!--  -->
+    </div>
+
+    <div>
+      <h2>4. Notas finales</h2>
+      <p>Referencias: <br> 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form</a> 
+        <a href="https://www.servnet.mx/blog/codigo-html-que-es-y-todo-lo-que-debes-saber">https://www.servnet.mx/blog/codigo-html-que-es-y-todo-lo-que-debes-saber</a> 
+    </p>      
+    </div>
+
+  <footer>
+    <p>Por Axalli López Ch</p>
+  </footer>
+</body>
+</html>
