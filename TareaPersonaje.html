@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hayao Miyazaki: Maestro del cine animado</title>
+
+  <style>
+    /* 
+    Estilo base del cuerpo, fuentes (tipo de letras) a utilizar
+    Los párrafos los justificamos (formato)
+    Se centran los rirtulos y damos margen vertical
+    */
+
+    body {
+      /* pila de fuentes: usa la del sistema y si no, alternativas sans-serif */
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+      background: #b7ecf6; /*color fondo general*/
+      color: #222;/*color texto principal*/
+
+    }
+    p { text-align: justify; } /* justifico los párrafos para bordes rectos a ambos lados */
+    h1, h2, h3 { text-align: center; margin: 0.5rem 0; } /* centro títulos y doy margen vertical mínimo */
+
+    /*    Contenedor     */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto; /*centra el bloque*/
+      padding: 0 1rem;
+    }
+
+    /* Encabezado y navegación */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 2px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand {
+      padding: 1rem 0 0.5rem;
+    }
+
+    /* estilo por ID */
+    #main-title {
+      letter-spacing: 0.5px;
+      color: #224488;
+    }
+
+    .nav {
+      background: #bfc1e1;
+      border-top: 1px solid #dbe3ff;
+      border-bottom: 1px solid #dbe3ff;
+    }
+    .nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav__link {
+      text-decoration: none;
+      color: #1f2a44;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-bottom: 2px solid transparent;
+      transition: color 150ms ease, border-color 150ms ease, text-decoration-color 150ms ease;
+    }
+    .nav__link:hover {
+      color: #0a58ca;          /* cambio de color al hover  */
+      text-decoration: underline;   /* subrayado al hover  */
+      border-color: #0a58ca;
+    }
+
+    /* Contenido principal */
+    .content {
+      background: #e1fcf3;
+      padding: 1.25rem;
+      border: 1px solid #e1fcf6;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      margin: 2rem 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .media-box {
+      border: 2px dotted #b3c0ff; /* borde punteado  */
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: #d4fbef;
+    }
+
+    .shadow-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 2px solid #d9e1ff;  /* borde sólido  */
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12); /* sombra  */
+    }
+
+    .img-oculta { /* se ocultará bajo 400px con media query */
+      display: block;
+    }
+
+    /* Obras (lista ordenada con artículos autocontenidos) */
+    .film-list {
+      list-style: decimal inside;
+      padding-left: 0;
+      margin: 1rem auto;
+      max-width: 850px;
+    }
+    .film-list > li {
+      margin: 0.5rem 0 1rem;
+    }
+    .card {
+      background: #e3f7c1;
+      border: 1px solid #e7edff;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06); /* sombra  */
+    }
+     /* Formato para mis cuadritos de las peliculas*/
+     .card--link {  
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #e7edff;           /* mantiene el borde de la card */
+      border-radius: 10px;
+      background: #cdf7eb;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 150ms ease, transform 120ms ease, border-color 150ms ease;
+      cursor: pointer;
+    }
+      .card--link:hover,
+      .card--link:focus-visible {
+      border-color: #7d95ff;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+      transform: translateY(-1px);
+      outline: none;
+    }
+      .card__thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.5rem;
+      border: 1px solid #e7edff;
+      border-radius: 8px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+
+    /* Listado de características (estilo simple) */
+    .features {
+      max-width: 900px;
+      margin: 1rem auto;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .features li {
+      background: #d5facb;
+      border: 1px solid #e1e9ff;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* Formulario de contacto */
+    .form {
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .form__row {
+      display: grid;
+      gap: 0.25rem;
+    }
+    .form__label {
+      font-weight: 600;
+    }
+    .form__input,
+    .form__textarea {
+      width: 100%;
+      border: 1px solid #cfd8ff;
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      font: inherit;
+      background: #fff;
+    }
+    .form__input:focus,
+    .form__textarea:focus {
+      outline: none;
+      border-color: #7d95ff;
+      box-shadow: 0 0 0 3px rgba(125,149,255,0.2);
+    }
+    .btn {
+      justify-self: start;
+      padding: 0.6rem 1rem;
+      border: 2px solid #224488;
+      background: #274b9f;
+      color: #fff;
+      border-radius: 999px; /* bordeado circular  */
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 150ms ease, transform 120ms ease;
+    }
+    .btn:hover {
+      filter: brightness(1.05); /* cambio de color perceptible con hover  */
+    }
+    .btn:active { transform: translateY(1px); }
+
+    /* Pie de página */
+    .site-footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 1.25rem 0 2rem;
+      border-top: 4px solid #0a58ca;
+      margin-top: 2rem;
+    }
+    .muted {
+      opacity: 0.85;
+    }
+
+
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* < 700px: cambiar color de fondo de main (.content) */
+    @media (max-width: 700px) {
+      .content { background-color: #e6f2ff; } /* azul claro */
+    }
+    /* < 400px: ocultar una imagen específica */
+    @media (max-width: 400px) {
+      .img-oculta { display: none; } 
+    }
+    /* < 300px: otro color de fondo de main (.content) */
+    @media (max-width: 300px) {
+      .content { background-color: #fddeeb; } /* rosa claro  */
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container brand">
+      <h1 id="main-title">Hayao Miyazaki: Maestro del cine animado</h1>
+    </div>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="container">
+        <ul class="nav__list">
+          <!-- Enlaces internos -->
+          <li><a class="nav__link" href="#vida">Vida</a></li>
+          <li><a class="nav__link" href="#obras">Obras</a></li>
+          <li><a class="nav__link" href="#Estilo">Estilo artístico</a></li>
+          <li><a class="nav__link" href="#sulegado">Legado</a></li>
+          <li><a class="nav__link" href="#tucontacto">Contacto</a></li>
+
+          <!-- Enlaces externos -->
+          <li>
+            <a class="nav__link" href="https://www.ghibli.jp/" target="_blank" rel="noopener noreferrer">
+              Studio Ghibli
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="https://www.imdb.com/name/nm0594503/" target="_blank" rel="noopener noreferrer">
+              IMDb de Hayao Miyazaki
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content container" role="main">
+    <!-- Section 1: Vida -->
+    <section id="vida" class="section">
+      <h2>Biografía</h2>
+
+      <div class="grid-2">
+        <div>
+          <p>
+            Hayao Miyazaki nació el 5 de enero de 1941 en <b>Tokio, Japón</b>. 
+            Su infancia estuvo marcada por la <strong>Guerra Mundial</strong>, ya que su familia trabajaba en una empresa que fabricaba piezas para aviones. 
+            Desde joven mostró interés por el dibujo y la animación, inspirado por películas japonesas y de Disney.
+          </p>
+          <p>
+            Comenzó su carrera en <i>Toei Animation</i> en 1963, donde trabajó como animador y pronto destacó por su creatividad. 
+            En 1985 fundó junto con Isao Takahata el famoso <strong><em>Studio Ghibli</em></strong> , que con el tiempo se convirtió en un referente mundial de la animación.
+          </p>
+          <p>
+            A lo largo de su vida, Miyazaki ha sido conocido no solo por su talento artístico, sino también por su personalidad firme, perfeccionista y crítica hacia la sociedad moderna. 
+            Ha hablado abiertamente contra la guerra, la industrialización desmedida y la deshumanización causada por la tecnología.
+          </p>
+
+          <!-- borde punteado y contenedor para la imágenes -->
+          <div class="media-box">
+            <img
+              class="shadow-img"
+              src="https://illustratorslounge.com/wp-content/uploads/2020/02/10-years-with-hayao-miyazaki-sml.jpg"
+              alt="Hayao Miyazaki dibujando en su estudio"
+              width="1200" height="800"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Imagen que desaparecerá < 400px -->
+        <div class="media-box">
+          <img
+            class="shadow-img img-oculta"
+            src="https://m.media-amazon.com/images/M/MV5BM2E2YzcwMTQtNWRlMC00ZGZlLWJhZTEtMDU4ZGIzMWI0NzJmXkEyXkFqcGc@._V1_.jpg"
+            alt="Póster de la película El Viaje de Chihiro de Studio Ghibli"
+            width="1200" height="1800"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <hr />
+<!-- Section 2: Obras destacadas -->
+<section id="obras" class="section">
+  <h2>Filmografía esencial</h2>
+
+  <ol class="film-list">
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/title/tt0087544/" aria-labelledby="film-nausicaa">
+        <h3 id="film-nausicaa"><em>Nausicaä del Valle del Viento</em> (1984)</h3>
+        <p>Una epopeya ecológica que anticipa la sensibilidad ambiental del resto de su obra.</p>
+        <img class="card__thumb"
+             src="https://static.wikia.nocookie.net/dubbing9585/images/b/bc/Nausicaaposter.jpg/revision/latest?cb=20171103012959"
+             alt="Nausicaä del Valle del Viento" loading="lazy" />
+      </a>
+    </li>
+
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/title/tt0096283/" aria-labelledby="film-totoro">
+        <h3 id="film-totoro"><em>Mi vecino Totoro</em> (1988)</h3>
+        <p>Una fábula tierna sobre la infancia y lo cotidiano, con criaturas entrañables.</p>
+        <img class="card__thumb"
+             src="https://i0.wp.com/theasiancut.com/wp-content/uploads/2023/12/1_SP6dG5qqOB7_kVUPs2RN9A.jpg?fit=1920%2C1080&ssl=1"
+             alt="Mi vecino Totoro" loading="lazy" />
+      </a>
+    </li>
+
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/title/tt0119698/" aria-labelledby="film-mononoke">
+        <h3 id="film-mononoke"><em>La Princesa Mononoke</em> (1997)</h3>
+        <p>Un relato épico sobre el choque entre naturaleza e industrialización, sin villanos absolutos.</p>
+        <img class="card__thumb"
+             src="https://www.theparisreview.org/blog/wp-content/uploads/2018/10/mononoke_1.jpg"
+             alt="La Princesa Mononoke" loading="lazy" />
+      </a>
+    </li>
+
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/title/tt0245429/" aria-labelledby="film-chihiro">
+        <h3 id="film-chihiro"><em>El Viaje de Chihiro</em> (2001, ganadora del Oscar)</h3>
+        <p>Fantasía desbordante y crítica social en una historia de crecimiento personal.</p>
+        <img class="card__thumb"
+             src="https://images3.alphacoders.com/819/thumb-1920-81999.jpg"
+             alt="El Viaje de Chihiro" loading="lazy" />
+      </a>
+    </li>
+
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/es/title/tt0347149/" aria-labelledby="film-castillo">
+        <h3 id="film-castillo"><em>El Castillo Ambulante</em> (2004)</h3>
+        <p>Identidad, guerra y magia: otra muestra de imaginación visual y personajes complejos.</p>
+        <img class="card__thumb"
+             src="https://i.pinimg.com/564x/f4/d2/25/f4d225972ffbe5e7148070f7af7aa2a9.jpg"
+             alt="El Castillo Vagabundo" loading="lazy" />
+      </a>
+    </li>
+
+    <li>
+      <a class="card card--link" href="https://www.imdb.com/es/title/tt6587046/" aria-labelledby="film-garza">
+        <h3 id="film-garza"><em>El Niño y la Garza</em> (2023)</h3>
+        <p>Una obra tardía y personal que reafirma su legado como autor imprescindible.</p>
+        <img class="card__thumb"
+             src="https://media.busqueda.com.uy/p/b7baea943a65c598fb1de1eab1fee07a/adjuntos/359/imagenes/100/007/0100007945/790x0/smart/la-garza-y-mahito-uno-sus-primeros-enfrentamientos-foto-studio-ghibli.jpg"
+             alt="El Niño y la Garza" loading="lazy" />
+      </a>
+    </li>
+  </ol>
+
+  <div class="media-box">
+    <img
+      class="shadow-img"
+      src="https://wallpapers.com/images/featured/studio-ghibli-tykbiycf0hjhjo39.jpg"
+      alt="Escena del Castillo Ambulante con paisaje de fantasía"
+      width="1600" height="900"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+
+    <hr />
+    <!-- Section 3: Estilo artístico -->
+    <section id="Estilo" class="section">
+      <h2>Estilo y temáticas</h2>
+      <p>
+        Miyazaki combina mundos fantásticos con temas profundos como la ecología, el pacifismo, la infancia y el poder
+        de la imaginación. Sus protagonistas suelen ser mujeres jóvenes fuertes e independientes, y sus villanos rara vez
+        son completamente malvados.
+      </p>
+
+      <ul class="features">
+        <li><b>Escenarios inspirados en la naturaleza: </b>
+          Una de las marcas más distintivas en el legado de Miyazaki es la profunda conexión con la naturaleza. 
+          Sus paisajes no son simples fondos, sino protagonistas que transmiten vida, misterio y espiritualidad. 
+          En películas como Mi vecino Totoro o La Princesa Mononoke, la naturaleza se presenta como un ente poderoso y sagrado que debe ser respetado. 
+          Este enfoque inspiró a millones de personas a reflexionar sobre el medio ambiente, convirtiéndose en una voz cinematográfica a favor de la ecología y la armonía entre humanos y entorno.
+        </li>
+        <li><b>Crítica a la guerra y la industrialización:</b>
+          Miyazaki también dejó un legado como crítico social y antibelicista. 
+          A lo largo de sus películas, mostró las consecuencias destructivas de la guerra y el daño que causa la industrialización desmedida. 
+          En Nausicaä del Valle del Viento y El Castillo Ambulante, la guerra aparece como una fuerza devastadora que rompe el equilibrio natural y humano. 
+          Su cine transmite un mensaje claro: la verdadera grandeza no está en el poder militar, sino en la capacidad de empatía, compasión y paz.
+        </li>
+        <li><b>Personajes femeninos complejos:</b>        
+          Miyazaki revolucionó el anime al romper con los estereotipos femeninos comunes en la industria. 
+          En lugar de personajes hipersexualizados, sus protagonistas suelen ser niñas o jóvenes con gran profundidad emocional, valentía y autonomía. 
+          <em>Chihiro</em> en El Viaje de Chihiro, <em>Nausicaä</em> en Nausicaä del Valle del Viento, <em>Kiki</em> en Kiki: Entregas a Domicilio o 
+          <em>San</em> en La Princesa Mononoke son ejemplos de mujeres fuertes y reales, con dudas, miedos y un crecimiento personal significativo. 
+          Este enfoque hizo que su estilo fuese reconocido por su respeto y autenticidad hacia la figura femenina.
+        </li>
+        <li><b>Fantasía mezclada con cotidiano:</b>
+          Uno de los rasgos más atractivos de Miyazaki es su habilidad para combinar lo fantástico con lo cotidiano. 
+          En su cine, la magia no es un escape de la realidad, sino una extensión natural de ella. 
+          El mundo espiritual en El Viaje de Chihiro, el castillo andante en El Castillo Ambulante o la vida diaria de Kiki como bruja repartidora son ejemplos de cómo la fantasía se entrelaza con situaciones humanas y cotidianas. 
+          Este estilo logra que sus películas conecten tanto con niños como con adultos, ofreciendo una experiencia universal.
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Section 4: Legado -->
+    <section id="sulegado" class="section">
+      <h2>Legado e impacto mundial</h2>
+      <p>
+        Con su influencia, Studio Ghibli es considerado el “Disney japonés”, pero con un enfoque único. Su obra ha
+        inspirado a generaciones de animadores, cineastas y artistas en todo el mundo. <em>El Viaje de Chihiro</em> fue
+        la primera película de animación en ganar el Oso de Oro en Berlín y un Oscar en 2003.
+      </p>
+      <p>
+        Hayao Miyazaki revolucionó la animación japonesa al demostrar que podía ser mucho más que simple entretenimiento infantil. 
+        Sus películas mostraron que este medio era capaz de transmitir mensajes filosóficos, emocionales y universales, colocándose 
+        a la par del cine de acción real. Con obras como <em>La Princesa Mononoke</em>, logró que la 
+        animación fuera reconocida como un arte profundo y serio, capaz de competir y brillar en los escenarios más prestigiosos del mundo.
+      </p>
+      <p>
+        Studio Ghibli, fundado por Miyazaki y Isao Takahata, se transformó en un ícono cultural de Japón. 
+        Sus películas no solo representan una parte esencial de la identidad artística japonesa, sino que también son 
+         reconocidas y queridas en todo el mundo. El estudio es considerado una marca de calidad, sensibilidad y belleza visual, 
+         llegando a convertirse en un embajador cultural de Japón y en un puente entre Oriente y Occidente.
+      </p>
+      <p>
+        El legado de Miyazaki ha influido profundamente en directores internacionales. 
+        <strong>Guillermo del Toro </strong>ha expresado su admiración por la riqueza visual y emocional de su cine, 
+        mientras que <strong>John Lasseter</strong>, uno de los fundadores de Pixar, 
+        reconoció a Miyazaki como una inspiración directa para el crecimiento de su estudio. 
+        Asimismo, directores japoneses contemporáneos como <strong>Makoto Shinkai</strong> (<em>Your Name</em>) han 
+        continuado su camino, llevando la animación japonesa a nuevas generaciones.
+      </p>
+
+
+    </section>
+
+    <hr />
+
+    <!-- Section 5: Contacto (Formulario) -->
+    <section id="tucontacto" class="section">
+      <h2>Contacto</h2>
+      <h3>¿Comentarios sobre la página?</h3>
+
+      <form 
+      class="form" 
+      action="#" 
+      method="post" 
+      aria-label="Formulario de contacto">
+        <div class="form__row">
+          <label 
+          class="form__label" 
+          for="nombre">Nombre</label>
+          <input 
+          class="form__input" 
+          type="text" 
+          id="nombre" 
+          name="nombre" 
+          placeholder="Tu nombre" required />
+        </div>
+
+        <div class="form__row">
+          <label 
+          class="form__label" 
+          for="correo">Correo electrónico</label>
+          <input 
+          class="form__input" 
+          type="email" 
+          id="correo" 
+          name="correo" 
+          placeholder="tucorreo@ejemplo.com" required />
+        </div>
+
+        <div class="form__row">
+          <label 
+          class="form__label" 
+          for="mensaje">Mensaje</label>
+          <textarea 
+          class="form__textarea" 
+          id="mensaje" name="mensaje" 
+          rows="5" 
+          placeholder="Escribe tu mensaje..." required></textarea>
+        </div>
+
+        <button 
+        class="btn" 
+        type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+ <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Página creada por Axalli — Desarrollo web.</p>
+      <hr />
+      <p class="muted">
+        <span>Inspirado en la magia de Studio Ghibli</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
